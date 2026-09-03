@@ -1,0 +1,422 @@
+
+/* login form */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #070d1d;
+    color: #dce4f2;
+}
+.container{
+    display: flex;
+    justify-content: center;
+     width: 100%;
+    min-height: 100vh;
+    align-items: center;
+     background: #0b2d46;
+}
+.login{
+        width: 480px;
+    min-height: 560px;
+       padding: 70px 75px;
+           border: 5px solid #79c9df;
+           border-radius: 20px;
+             background: rgba(70, 150, 190, 0.35);
+
+    box-shadow:
+        0 0 20px rgba(91, 185, 211, 0.4),
+        inset 0 0 30px rgba(255, 148, 148, 0.05);
+
+    backdrop-filter: blur(20px);
+}
+.login h1{
+       color: #e5edf2;
+         font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 35px;
+    text-align: center;
+
+
+}
+.login input{
+    width: 100%;
+    padding: 12px 5px;
+        margin-bottom: 30px;
+         background: transparent;
+             border: none;
+               border-bottom: 2px solid #d5f0ff;
+   outline: none;
+    color: rgb(37, 11, 11);
+    font-size: 20px;
+    color: #f2f4f5;
+}
+.login input::placeholder {
+    color: #070808;
+}
+
+.login input:focus {
+    border-bottom-color: #55d9f5;
+}
+.login button{
+    width: 100%;
+    margin-top: 35px;
+    padding: 13px;
+    border: none;
+       border-radius: 12px;
+
+    background: #15577a;
+    color: white;
+        font-size: 15px;
+    cursor: pointer;
+ font-weight: 200;
+    transition: 0.3s;
+}
+.login button:hover {
+    background: #0e719e;
+}
+.login p {
+    margin-top: 20px;
+    color: #f2f4f5;
+    font-size: 15px;
+}
+.login a{
+      color: #fffefe;
+font-weight: bold;
+      text-decoration: none;
+}
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+
+/* responsive */
+@media (max-width: 430px) {
+
+    .login {
+        width: 90%;
+        min-height: auto;
+
+        padding: 50px 35px;
+        border-radius: 25px;
+    }
+
+    .login h1 {
+        font-size: 32px;
+    }
+
+    .login input {
+        font-size: 20px;
+    }
+
+    .login button {
+        font-size: 22px;
+    }
+
+    .login p {
+        font-size: 16px;
+    }
+}
+
+/* main */
+.app{
+    display: flex;
+    min-height: 100vh;
+}
+
+/* sidebar */
+.sidebar{
+width: 270px;
+    background: #211e55;
+padding: 28px 18px;
+flex-shrink: 0;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+.brandlogo{
+    width: 48px;
+    height: 48px;
+        background: #5b5cff;
+border-radius: 12px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 25px;
+font-weight: bold;
+color: #f2f4f5;
+}
+.brand h2 {
+    font-size: 20px;
+    color: #f2f4f5;
+}
+.menu{
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+        color: #8188ff;
+}
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.sidebar nav a {
+    text-decoration: none;
+        color: #c2c2eb;
+padding: 14px 18px;
+border-radius: 12px;
+font-size: 16px;
+font-weight: 600;
+    }
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #352b88;
+    color: white;
+}
+
+/* main content */
+.maincontent{
+    flex: 1;
+    padding: 30px;
+    min-width: 0;
+}
+.topbar{
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.topbar h1 {
+    font-size: 28px;
+}
+
+.topbar p {
+    color: #8996b0;
+    margin-top: 5px;
+}
+.addbtn {
+    background: #5955e8;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* dashboard */
+.dcard{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.card {
+        background: #4e5769;
+
+    border: 3px solid #1c386d;
+    padding: 22px;
+    border-radius: 12px;
+}
+.card p {
+    margin-bottom: 10px;
+        color: #f6f9ff;
+
+}
+
+.card h2 {
+    font-size: 28px;
+}
+
+/* table */
+
+.Esection{
+        background: #10192c;
+    border: 1px solid #202d46;
+   border-radius: 12px;
+    overflow: hidden;
+}
+.tableH{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.tableH input{
+    width: 250px;
+    padding: 11px;
+       background: #0b1325;
+    border: 1px solid #293754;
+    border-radius: 8px;
+    color: white;
+}
+.tableC{
+    overflow-x: auto ;
+}
+
+table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #e3ebfc;
+}
+
+th {
+    padding: 17px;
+    text-align: left;
+    font-size: 13px;
+    color: #0f141d;
+}
+
+td {
+    padding: 17px;
+    border-top: 1px solid #202d46;
+    color: #b9c4d8;
+    font-size: 14px;
+}
+
+
+
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.active-status {
+    background: #063e3b;
+    color: #00d7a2;
+}
+
+.inactive-status {
+    background: #432327;
+    color: #ff6b6b;
+}
+
+.probation-status {
+    background: #443516;
+    color: #ffc107;
+}
+
+.action-btn {
+    border: none;
+    background: transparent;
+    color: #9aa9c5;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.action-btn:hover {
+    color: white;
+}
+ 
+
+/* add employee */
+.model{
+display: none;
+position: fixed;
+inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+align-items: center;
+justify-content: center;
+padding: 20px;
+z-index: 100;
+}
+.mbox{
+    width: 500px;
+    max-width: 100%;
+    max-height:90vh ;
+        background: #111a2e;
+padding: 25px;
+border-radius: 15px;
+position: relative;
+}
+.mbox h2{
+    margin-bottom: 20px;
+}
+.close {
+    position: absolute;
+    right: 18px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+.mbox label{
+    display: block;
+    margin: 12px 0 4px;
+        color: #aebbd0;
+}
+.mobox input,
+.mbox select {
+    width: 50%;
+    padding: 5px;
+    background: #000000;
+    border: 1px solid #293754;
+    border-radius: 7px;
+    outline: none;
+    color: #f2f4f5;
+
+ 
+}
+.savebtn{
+    width: 100%;
+border: none;
+border-radius: 8px;
+    background: #5955e8;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px;
+}
+#formError,
+#loginError {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* view */
+.details p {
+    padding: 12px 0;
+    border-bottom: 1px solid #273653;
+}
+
+.details strong {
+    color: #8996b0;
+}
+
+
+/* Employee Table Body */
+
+#employeeTable tr {
+    border-top: 1px solid #202d46;
+}
+
+#employeeTable td {
+    padding: 17px;
+    color: #b9c4d8;
+    font-size: 14px;
+}
+
+
+
+
+

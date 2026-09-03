@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- login form -->
+    <div class="container" id="loginpage">
+      <form class="login" id="loginForm">
+        <h1>LOGIN</h1>
+        <input type="text" id="loginUser" placeholder="username" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button type="button" onclick="login()">SIGN IN</button>
+        <p>
+          Forgot password?
+          <a href="#">Click here</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- main -->
+
+    <div class="app" id="app">
+      <!-- sidebar -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brandlogo">S</div>
+          <h2>Stratos EMS</h2>
+        </div>
+
+        <p class="menu">MAIN MENU</p>
+
+        <nav>
+          <a href="#" class="active">▦ Dashboard</a>
+          <a href="#employees">♙ Employees</a>
+
+          <a href="#">▤ Departments</a>
+
+          <a href="#">☑ Attendance</a>
+
+          <a href="#">▭ Payroll</a>
+
+          <a href="#">▣ Leave</a>
+
+          <a href="#">↗ Performance</a>
+
+          <a href="#">▥ Reports</a>
+
+          <a href="#">▣ Calendar</a>
+
+          <a href="#">▢ Messages</a>
+        </nav>
+      </aside>
+
+      <!-- content -->
+      <div class="maincontent">
+        <header class="topbar">
+          <div>
+            <h1>Employee Management</h1>
+            <p>Manage your employees</p>
+          </div>
+          <button class="addbtn" onclick="openEmployee()">
+            + Add Employee
+          </button>
+        </header>
+
+        <!-- dashborad -->
+        <section class="dcard">
+          <div class="card">
+            <p>Total Employees</p>
+            <h2 id="totalEmployees">0</h2>
+          </div>
+
+          <div class="card">
+            <p>Active Employees</p>
+            <h2 id="activeEmployees">0</h2>
+          </div>
+
+          <div class="card">
+            <p>Inactive Employees</p>
+            <h2 id="inactiveEmployees">0</h2>
+          </div>
+
+          <div class="card">
+            <p>Total Departments</p>
+            <h2 id="totalDepartments">0</h2>
+          </div>
+        </section>
+
+        <!-- employee table -->
+
+        <section class="Esection" id="Esection">
+          <div class="tableH">
+            <h2>Employees</h2>
+            <input type="text" id="search" placeholder="search employee..." />
+          </div>
+          <div class="tableC">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Department</th>
+                  <th>Position</th>
+                  <th>Salary</th>
+                  <th>Joining Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody id="employeeTable">
+                <tr>
+                  <td>EMP001</td>
+                  <td>Ali Khan</td>
+                  <td>ali@gmail.com</td>
+                  <td>03001234567</td>
+                  <td>Engineering</td>
+                  <td>Software Developer</td>
+                  <td>80000</td>
+                  <td>2026-01-10</td>
+                  <td>
+                    <span class="status active-status">Active</span>
+                  </td>
+                  <td>
+                    <button class="action-btn">👁</button>
+                    <button class="action-btn">✏</button>
+                    <button class="action-btn">🗑</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>EMP002</td>
+                  <td>Sara Ahmed</td>
+                  <td>sara@gmail.com</td>
+                  <td>03111234567</td>
+                  <td>Finance</td>
+                  <td>Accountant</td>
+                  <td>70000</td>
+                  <td>2026-02-15</td>
+                  <td>
+                    <span class="status active-status">Active</span>
+                  </td>
+                  <td>
+                    <button class="action-btn">👁</button>
+                    <button class="action-btn">✏</button>
+                    <button class="action-btn">🗑</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- add employee -->
+
+    <div class="model" id="employee">
+      <div class="mbox">
+        <button class="close" onclick="closeEmployee()">×</button>
+        <h2 id="modalTitle">Add Employee</h2>
+        
+        <form class="employeeform">
+          <input type="hidden" id="editIndex" />
+
+          <label>Employee ID</label>
+          <input type="text" id="employeid" />
+
+          <label>Full Name</label>
+          <input type="text" id="name" />
+
+          <label>Email</label>
+          <input type="email" id="email" />
+
+          <label>Phone</label>
+          <input type="text" id="phone" />
+
+          <label>Department</label>
+
+          <select id="department">
+            <option value="">Select Department</option>
+            <option>Engineering</option>
+            <option>Customer Support</option>
+            <option>Sales & Growth</option>
+            <option>Legal & Compliance</option>
+            <option>Finance</option>
+          </select>
+
+          <label>Position</label>
+          <input type="text" id="position" />
+
+          <label>Salary</label>
+          <input type="number" id="salary" />
+
+          <label>Joining Date</label>
+          <input type="date" id="joiningDate" />
+
+          <label>Status</label>
+
+          <select id="status">
+            <option value="">Select Status</option>
+            <option>Active</option>
+            <option>Inactive</option>
+            <option>Probation</option>
+          </select>
+
+          <p id="formError"></p>
+
+          <button type="submit" class="savebtn">Save Employee</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
