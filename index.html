@@ -3,220 +3,739 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Management System</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>employee-landing</title>
+    <link rel="stylesheet" href="landing.css" />
   </head>
   <body>
-    <!-- login form -->
-    <div class="container" id="loginpage">
-      <form class="login" id="loginForm">
-        <h1>LOGIN</h1>
-        <input type="text" id="loginUser" placeholder="username" />
-        <input type="password" id="loginPassword" placeholder="Password" />
-        <button type="button" onclick="login()">SIGN IN</button>
-        <p>
-          Forgot password?
-          <a href="#">Click here</a>
-        </p>
-      </form>
-    </div>
+    <header class="navbar">
+      <div class="nav-container">
+        <!-- LOGO -->
+        <a href="#" class="logo">
+          <img src="img1.webp" alt="FlowHCM" />
+        </a>
 
-    <!-- main -->
+        <!-- NAVIGATION -->
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="#">Home</a>
+          </li>
 
-    <div class="app" id="app">
-      <!-- sidebar -->
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brandlogo">S</div>
-          <h2>Stratos EMS</h2>
+          <!-- MODULES -->
+          <li class="dropdown">
+            <a href="#">
+              Modules
+              <span class="arrow">▼</span>
+            </a>
+
+            <div class="dropdown-menu mega-menu">
+              <a href="#">Employee Management</a>
+              <a href="#">Time & Attendance</a>
+              <a href="#">Leave Management</a>
+              <a href="#">Payroll Management</a>
+
+              <a href="#">Recruitment Management</a>
+              <a href="#">Performance Management</a>
+              <a href="#">Expense Management</a>
+              <a href="#">HR Letters Management</a>
+
+              <a href="#">Training Management</a>
+              <a href="#">Separation Management</a>
+              <a href="#">Scheduled Reports</a>
+              <a href="#">Scheduled Alerts</a>
+
+              <a href="#">Manpower Management</a>
+              <a href="#">Help Desk Management</a>
+              <a href="#">Travel Management</a>
+              <a href="#">Onboarding Management</a>
+
+              <a href="#">Employee Assets</a>
+              <a href="#">Piece Work Management</a>
+              <a href="#">View All Modules →</a>
+            </div>
+          </li>
+
+          <!-- MEDIA -->
+          <li class="dropdown">
+            <a href="#">
+              Media & Resources
+              <span class="arrow">▼</span>
+            </a>
+
+            <div class="dropdown-menu">
+              <a href="#">Blogs</a>
+              <a href="#">Tutorials</a>
+              <a href="#">Webinars</a>
+              <a href="#">Case Studies</a>
+              <a href="#">Events</a>
+              <a href="#">News</a>
+              <a href="#">Testimonials</a>
+              <a href="#">Pricing</a>
+              <a href="#">Google Play</a>
+              <a href="#">App Store</a>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Clients</a>
+          </li>
+
+          <li>
+            <a href="#">Hardware</a>
+          </li>
+
+          <li>
+            <a href="#">Contact</a>
+          </li>
+
+          <li>
+            <a href="#">العربية</a>
+          </li>
+
+          <li>
+            <!-- <button class="demo-btn" type="button" onclick="openLogin()">
+              SIGN IN
+            </button> -->
+            <button class="demo-btn" onclick="openLogin()">Sign In</button>
+          </li>
+        </ul>
+
+        <!-- MOBILE MENU -->
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+    </header>
+
+    <!-- hero section -->
+    <section class="hero">
+      <div class="hero-container">
+        <!-- LEFT SIDE TEXT -->
+        <div class="hero-content">
+          <span class="hero-tag">SMART HR SOLUTIONS</span>
+
+          <h1>
+            Best <br />
+            <span>HR Software <br /></span> HRMS
+          </h1>
+
+          <h2>To Manage Your Employees, People & Workforce</h2>
+
+          <p>
+            A complete Human Resource Management System (HRMS) designed to
+            manage your employees, payroll, attendance and workforce efficiently
+            with modern HR solutions.
+          </p>
+
+          <div class="customers">
+            <strong>1,400+</strong>
+            <span>Active Customers</span>
+          </div>
+
+          <!-- From Uiverse.io by zjssun -->
+          <button id="btn">Request A Free Demo</button>
         </div>
 
-        <p class="menu">MAIN MENU</p>
-
-        <nav>
-          <a href="#" class="active">▦ Dashboard</a>
-          <a href="#employees">♙ Employees</a>
-
-          <a href="#">▤ Departments</a>
-
-          <a href="#">☑ Attendance</a>
-
-          <a href="#">▭ Payroll</a>
-
-          <a href="#">▣ Leave</a>
-
-          <a href="#">↗ Performance</a>
-
-          <a href="#">▥ Reports</a>
-
-          <a href="#">▣ Calendar</a>
-
-          <a href="#">▢ Messages</a>
-        </nav>
-      </aside>
-
-      <!-- content -->
-      <div class="maincontent">
-        <header class="topbar">
-          <div>
-            <h1>Employee Management</h1>
-            <p>Manage your employees</p>
-          </div>
-          <button class="addbtn" onclick="openEmployee()">
-            + Add Employee
-          </button>
-        </header>
-
-        <!-- dashborad -->
-        <section class="dcard">
-          <div class="card">
-            <p>Total Employees</p>
-            <h2 id="totalEmployees">0</h2>
-          </div>
-
-          <div class="card">
-            <p>Active Employees</p>
-            <h2 id="activeEmployees">0</h2>
-          </div>
-
-          <div class="card">
-            <p>Inactive Employees</p>
-            <h2 id="inactiveEmployees">0</h2>
-          </div>
-
-          <div class="card">
-            <p>Total Departments</p>
-            <h2 id="totalDepartments">0</h2>
-          </div>
-        </section>
-
-        <!-- employee table -->
-
-        <section class="Esection" id="Esection">
-          <div class="tableH">
-            <h2>Employees</h2>
-            <input type="text" id="search" placeholder="search employee..." />
-          </div>
-          <div class="tableC">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Department</th>
-                  <th>Position</th>
-                  <th>Salary</th>
-                  <th>Joining Date</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-
-              <tbody id="employeeTable">
-                <tr>
-                  <td>EMP001</td>
-                  <td>Ali Khan</td>
-                  <td>ali@gmail.com</td>
-                  <td>03001234567</td>
-                  <td>Engineering</td>
-                  <td>Software Developer</td>
-                  <td>80000</td>
-                  <td>2026-01-10</td>
-                  <td>
-                    <span class="status active-status">Active</span>
-                  </td>
-                  <td>
-                    <button class="action-btn">👁</button>
-                    <button class="action-btn">✏</button>
-                    <button class="action-btn">🗑</button>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>EMP002</td>
-                  <td>Sara Ahmed</td>
-                  <td>sara@gmail.com</td>
-                  <td>03111234567</td>
-                  <td>Finance</td>
-                  <td>Accountant</td>
-                  <td>70000</td>
-                  <td>2026-02-15</td>
-                  <td>
-                    <span class="status active-status">Active</span>
-                  </td>
-                  <td>
-                    <button class="action-btn">👁</button>
-                    <button class="action-btn">✏</button>
-                    <button class="action-btn">🗑</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+        <!-- RIGHT SIDE IMAGE -->
+        <!-- <div class="hero-image">
+          <img src="img3.png" alt="HR Management" />
+        </div> -->
       </div>
+    </section>
+
+    <!-- section2 -->
+    <section class="modules-section">
+      <div class="modules-container">
+        <h2>FlowHCM Top Modules</h2>
+
+        <div class="modules-grid">
+          <!-- Employee -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon">♟</div>
+                <div>
+                  <h3>Employee</h3>
+                  <p>Streamline Workforce Data and Operations</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon">♟</div>
+                <strong>Employee</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attendance -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon">◷</div>
+                <div>
+                  <h3>Attendance</h3>
+                  <p>Efficiently Track Employee Attendance</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon">◷</div>
+                <strong>Attendance</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leave -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon yellow">▤</div>
+                <div>
+                  <h3>Leave</h3>
+                  <p>Simplify Leave Tracking and Approvals</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon yellow">▤</div>
+                <strong>Leave</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payroll -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon red">▣</div>
+                <div>
+                  <h3>Payroll</h3>
+                  <p>Effortless Payroll Processing & Reporting</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon red">▣</div>
+                <strong>Payroll</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Separation -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon">♧</div>
+                <div>
+                  <h3>Separation</h3>
+                  <p>Smooth Employee Departures with complete formalities</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon">♧</div>
+                <strong>Separation</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recruitment -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon">♙</div>
+                <div>
+                  <h3>Recruitment</h3>
+                  <p>Elevate Your Hiring Process with advanced ATS</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon">♙</div>
+                <strong>Recruitment</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Performance -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon red">↗</div>
+                <div>
+                  <h3>Performance</h3>
+                  <p>Quick & Easy Appraisal Management</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon red">↗</div>
+                <strong>Performance</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Help Desk -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon">⚙</div>
+                <div>
+                  <h3>Help Desk</h3>
+                  <p>Simplify & Track Internal Support Processes</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon">⚙</div>
+                <strong>Help Desk</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expense -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon orange">▣</div>
+                <div>
+                  <h3>Expense</h3>
+                  <p>Control and Track Employee Expenses</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon orange">▣</div>
+                <strong>Expense</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- HR Letters -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon red">✉</div>
+                <div>
+                  <h3>HR Letters</h3>
+                  <p>Effortless HR Communication and Documentation</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon red">✉</div>
+                <strong>HR Letters</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Training -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon yellow">⚑</div>
+                <div>
+                  <h3>Training</h3>
+                  <p>Streamline Employee Skill Development</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon yellow">⚑</div>
+                <strong>Training</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manpower -->
+          <div class="module-card">
+            <div class="module-content">
+              <div class="module-front">
+                <div class="module-icon">♟</div>
+                <div>
+                  <h3>Manpower</h3>
+                  <p>Efficient Workforce Planning and Budgeting</p>
+                </div>
+              </div>
+
+              <div class="module-back">
+                <div class="back-icon">♟</div>
+                <strong>Manpower</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="all-modules"> ▣ &nbsp; View All Modules </a>
+      </div>
+    </section>
+
+  
+ <!-- SECTION 3 -->
+
+<section class="whysection">
+
+    <div class="whycontainer">
+
+        <!-- HEADING -->
+        <div class="heading">
+
+            <span>WHY FLOWHCM?</span>
+
+            <h2>
+                Everything You Need to
+                <strong>Manage Your Workforce</strong>
+            </h2>
+
+            <p>
+                Simplify your HR operations with powerful tools designed to manage
+                employees, attendance, payroll, recruitment and more.
+            </p>
+
+        </div>
+
+
+        <!-- CARDS -->
+        <div class="whygrid">
+
+            <div class="whycard">
+
+                <div class="whyicon">⚡</div>
+
+                <h3>Easy to Use</h3>
+
+                <p>
+                    Simple and user-friendly interface that makes HR management
+                    effortless.
+                </p>
+
+            </div>
+
+
+            <div class="whycard">
+
+                <div class="whyicon">🔒</div>
+
+                <h3>Secure & Reliable</h3>
+
+                <p>
+                    Keep your employee information safe with secure and reliable HR
+                    technology.
+                </p>
+
+            </div>
+
+
+            <div class="whycard">
+
+                <div class="whyicon">📊</div>
+
+                <h3>Smart Analytics</h3>
+
+                <p>
+                    Get valuable insights and reports to make better workforce
+                    decisions.
+                </p>
+
+            </div>
+
+
+            <div class="whycard">
+
+                <div class="whyicon" >☁</div>
+
+                <h3>Cloud Based</h3>
+
+                <p>
+                    Access your HR data anytime and anywhere with cloud-based
+                    technology.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- add employee -->
+</section>
 
-    <div class="model" id="employee">
-      <div class="mbox">
-        <button class="close" onclick="closeEmployee()">×</button>
-        <h2 id="modalTitle">Add Employee</h2>
-        
-        <form class="employeeform">
-          <input type="hidden" id="editIndex" />
 
-          <label>Employee ID</label>
-          <input type="text" id="employeid" />
+<!-- section 4 -->
 
-          <label>Full Name</label>
-          <input type="text" id="name" />
+<section class="stats-section">
 
-          <label>Email</label>
-          <input type="email" id="email" />
+    <div class="stats-container">
 
-          <label>Phone</label>
-          <input type="text" id="phone" />
+        <div class="stat-box">
+            <h2>10K+</h2>
+            <p>Employees Managed</p>
+        </div>
 
-          <label>Department</label>
+        <div class="stat-box">
+            <h2>500+</h2>
+            <p>Companies</p>
+        </div>
 
-          <select id="department">
-            <option value="">Select Department</option>
-            <option>Engineering</option>
-            <option>Customer Support</option>
-            <option>Sales & Growth</option>
-            <option>Legal & Compliance</option>
-            <option>Finance</option>
-          </select>
+        <div class="stat-box">
+            <h2>99.9%</h2>
+            <p>System Uptime</p>
+        </div>
 
-          <label>Position</label>
-          <input type="text" id="position" />
+        <div class="stat-box">
+            <h2>24/7</h2>
+            <p>Support</p>
+        </div>
 
-          <label>Salary</label>
-          <input type="number" id="salary" />
-
-          <label>Joining Date</label>
-          <input type="date" id="joiningDate" />
-
-          <label>Status</label>
-
-          <select id="status">
-            <option value="">Select Status</option>
-            <option>Active</option>
-            <option>Inactive</option>
-            <option>Probation</option>
-          </select>
-
-          <p id="formError"></p>
-
-          <button type="submit" class="savebtn">Save Employee</button>
-        </form>
-      </div>
     </div>
 
-    <script src="script.js"></script>
+</section>
+
+
+<!-- section 5 -->
+
+
+<section class="testimonial-section">
+    <div class="testimonial-container">
+
+        <div class="testimonial-heading">
+
+            <span>OUR CLIENTS</span>
+
+            <h2>
+                What Our
+                <strong>Customers Say</strong>
+            </h2>
+
+            <p>
+                Discover how businesses are simplifying their
+                HR management with FlowHCM.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+            <!-- CARD 1 -->
+
+            <div class="testimonial-card">
+
+                <div class="stars">
+                    ★ ★ ★ ★ ★
+                </div>
+
+                <p class="review">
+                    FlowHCM has made our employee management
+                    much easier and more organized. Everything
+                    is available in one place.
+                </p>
+
+                <div class="client">
+
+                    <div class="client-icon">
+                        A
+                    </div>
+
+                    <div>
+                        <h3>Aman Khan</h3>
+                        <span>HR Manager</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD 2 -->
+
+            <div class="testimonial-card">
+
+                <div class="stars">
+                    ★ ★ ★ ★ ★
+                </div>
+
+                <p class="review">
+                    Managing attendance, leave and payroll
+                    has become faster and more efficient
+                    with this HR management system.
+                </p>
+
+                <div class="client">
+
+                    <div class="client-icon">
+                        A
+                    </div>
+
+                    <div>
+                        <h3>Airah Khan</h3>
+                        <span>HR Director</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD 3 -->
+
+            <div class="testimonial-card">
+
+                <div class="stars">
+                    ★ ★ ★ ★ ★
+                </div>
+
+                <p class="review">
+                    A simple and powerful solution for
+                    managing our workforce and keeping
+                    our HR processes organized.
+                </p>
+
+                <div class="client">
+
+                    <div class="client-icon">
+                        E
+                    </div>
+
+                    <div>
+                        <h3>Esha Khan</h3>
+                        <span>Business Manager</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- section 6 -->
+
+
+<section class="cta-section">
+
+    <div class="cta-container">
+
+        <div class="cta-content">
+
+            <span>GET STARTED</span>
+
+            <h2>
+                Ready to Simplify
+                <strong>Your HR Management?</strong>
+            </h2>
+
+            <p>
+                Manage your employees, attendance, payroll and
+                HR operations easily with FlowHCM.
+            </p>
+
+            <a href="#" class="cta-button">
+                Get Started
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- footer -->
+
+
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- ABOUT -->
+
+        <div class="footer-column footer-about">
+
+            <h2>Flow<span>HCM</span></h2>
+
+            <p>
+                Simplify your HR management with powerful tools
+                designed to manage your workforce efficiently.
+            </p>
+
+            <div class="social-links">
+                <a href="#">f</a>
+                <a href="#">in</a>
+                <a href="#">𝕏</a>
+                <a href="#">◎</a>
+            </div>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-column">
+
+            <h3>Quick Links</h3>
+
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Modules</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+
+        </div>
+
+
+        <!-- MODULES -->
+
+        <div class="footer-column">
+
+            <h3>Modules</h3>
+
+            <a href="#">Employee</a>
+            <a href="#">Attendance</a>
+            <a href="#">Leave</a>
+            <a href="#">Payroll</a>
+            <a href="#">Recruitment</a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-column">
+
+            <h3>Contact Us</h3>
+
+            <p>📍 Karachi, Pakistan</p>
+            <p>✉ info@flowhcm.com</p>
+            <p>☎ +92 300 1234567</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 FlowHCM. All Rights Reserved.
+        </p>
+
+        <div>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+function openLogin() {
+    window.location.href = "login.html";
+}
+</script>
   </body>
 </html>

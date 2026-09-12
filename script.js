@@ -1,5 +1,9 @@
 // login
 
+function openLogin() {
+window.location.href = "login.html";
+}
+
 function login() {
 
     let username = document.getElementById("loginUser").value.trim();
