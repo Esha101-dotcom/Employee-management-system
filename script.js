@@ -303,6 +303,31 @@ function viewEmployee(index) {
     );
 };
 
+
+
+
+// Search employee
+
+document.getElementById("search").addEventListener("input", function () {
+
+    let searchValue = this.value.toLowerCase();
+
+    let rows = document.querySelectorAll("#employeeTable tr");
+
+    rows.forEach(function(row) {
+
+        let text = row.innerText.toLowerCase();
+
+        if (text.includes(searchValue)) {
+            row.style.display = "";
+        }
+        else {
+            row.style.display = "none";
+        }
+
+    });
+
+});
 // start
 
         displayEmployees();
